@@ -19,7 +19,7 @@ struct ParticleFilter {
     weights: Vector<f64>,  // Unit mass of particle (fitness to observation data)
     particles: Vector<f64>,
     predicted_particles: Vector<f64>,  // Predictive distribution.
-    lsm: f64,  // Square error.
+    lsm: f64,  // Square error. 
     base: BaseParticleFilter,
 }
 

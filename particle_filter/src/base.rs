@@ -10,18 +10,14 @@ use self::rayon::prelude::*;
 
 
 #[derive(Debug)]
-// pub struct ParticleFilter;
 pub struct BaseParticleFilter;
 
 pub trait _BaseParticleFilter {
-    // fn calculate_loss(&mut self, y: &f64, filterd_value: &f64) -> f64;
-    // fn new() -> BaseParticleFilter;
     fn generate_random_values_from_norm_dist(&self, n_particles: &usize) -> Vector<f64>;
     fn compute_normal_pdf(&self, upper: &f64, loc: f64, scale: f64) -> f64;
 }
 
 impl _BaseParticleFilter for BaseParticleFilter {
-    // fn new() -> BaseParticleFilter {BaseParticleFilter{}}
     fn generate_random_values_from_norm_dist(&self, n_particles: &usize) -> Vector<f64> {
         let norm = Normal::new(0f64, 1f64);
         fn normal_sampling(norm: &Normal) -> f64 {norm.ind_sample(&mut rand::thread_rng())}
